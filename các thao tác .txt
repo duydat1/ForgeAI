@@ -1,0 +1,67 @@
+Ban đầu tạo 1 folder ForgeAI , sau đó tạo 1 folder engine ( trong này có 2 file main và analyzer)
+Nhiệm vụ ở V1 là người dùng đưa 1 folder vào , AI sẽ nhận diện và chỉ tìm 2 file main và analyzer để đọc 
+    - Ta quy định V1 chỉ phân tích 3 đuôi .cpp .h .hpp 
+    - Đọc file xem có bao nhiêu dòng , mỗi 1 dòng là loại j , mỗi 1 loại có bao nhiêu dòng 
+    - Chia nhỏ file analyzer.cpp thành file_analyzer.cpp và file_analyzer.h (.h không chứa cách làm, nó chỉ nói: “ForgeAI có một hàm tên analyzeFile, muốn dùng thì gọi nó.” )
+        + Đưa hàm analyzeFile từ analyzer sang file_analyzer . 
+        + Thêm vào đầu file analyzer   '''  #include "file_analyzer.h"  '''
+    => analyzer.cpp lúc này chỉ còn nhiệm vụ: duyệt project → tìm source file → gọi analyzeFile()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
