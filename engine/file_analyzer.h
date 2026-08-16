@@ -2,5 +2,7 @@
 
 #include <filesystem>
 
-// Khai báo hàm phân tích một source file.
-void analyzeFile(const std::filesystem::path& filePath);
+#include "file_metrics.h"
+
+// Phân tích file và trả về các metrics của file đó.
+FileMetrics analyzeFile(const std::filesystem::path& filePath);

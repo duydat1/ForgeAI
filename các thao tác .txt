@@ -6,7 +6,7 @@ Nhiệm vụ ở V1 là người dùng đưa 1 folder vào , AI sẽ nhận di�
         + Đưa hàm analyzeFile từ analyzer sang file_analyzer . 
         + Thêm vào đầu file analyzer   '''  #include "file_analyzer.h"  '''
     => analyzer.cpp lúc này chỉ còn nhiệm vụ: duyệt project → tìm source file → gọi analyzeFile()
-
+    - Thêm file_metrics.h 
 
 
 

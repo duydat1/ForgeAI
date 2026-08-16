@@ -4,8 +4,10 @@
 
 #include "file_analyzer.h"
 
+using std ::cout;
+
 void analyze(const std::string& projectPath) {
-    std::cout << "Scanning project...\n\n"; // In thông báo cho biết ForgeAI bắt đầu quét project.
+    cout << "Scanning project...\n\n"; // In thông báo cho biết ForgeAI bắt đầu quét project.
     int sourceFileCount = 0; // Biến này dùng để đếm tổng số file C++ mà ForgeAI tìm thấy.
     
     for (const auto& entry :  // Duyệt qua projectPath và tất cả các thư mục con bên trong nó.
@@ -15,13 +17,16 @@ void analyze(const std::string& projectPath) {
             std::string extension = entry.path().extension().string(); // Lấy phần mở rộng của file, ví dụ ".cpp", ".h", ".hpp".
 
             if (extension == ".cpp" || extension == ".h" || extension == ".hpp") {
-                std::cout << entry.path() << '\n'; // In tên file đang được phân tích.
-                analyzeFile(entry.path()); // Phân tích nội dung của file hiện tại.
+                cout << entry.path() << '\n'; // In tên file đang được phân tích.
+                FileMetrics metrics = analyzeFile(entry.path());// Phân tích nội dung của file hiện tại.
                 sourceFileCount++; // Tăng số lượng source file lên 1.
+                cout << "  Total lines:   " << metrics.totalLines << '\n';
+                cout << "  Blank lines:   " << metrics.blankLines << '\n';
+                cout << "  Comment lines: " << metrics.commentLines << '\n';
             }
         }
     }
 
     // In tổng số source file sau khi quét xong.
-    std::cout << "\nTotal C++ source files: " << sourceFileCount << '\n';
+    cout << "\nTotal C++ source files: " << sourceFileCount << '\n';
 }
