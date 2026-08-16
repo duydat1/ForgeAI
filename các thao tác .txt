@@ -6,8 +6,8 @@ Nhiệm vụ ở V1 là người dùng đưa 1 folder vào , AI sẽ nhận di�
         + Đưa hàm analyzeFile từ analyzer sang file_analyzer . 
         + Thêm vào đầu file analyzer   '''  #include "file_analyzer.h"  '''
     => analyzer.cpp lúc này chỉ còn nhiệm vụ: duyệt project → tìm source file → gọi analyzeFile()
-    - Thêm file_metrics.h 
-
+    - Thêm file_metrics.h : thay vì đọc file r in ra kết quả thì sẽ lưu vào 1 FileMetrics và trả về file đó để tái sử dụng 
+        + xóa 3 biến đếm và thay bằng FileMetrics metrics; mỗi lần gọi struct FileMetrics sẽ chạy và lưu kết quả vào file_metrics
 
 
 

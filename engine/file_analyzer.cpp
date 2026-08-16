@@ -12,10 +12,12 @@ FileMetrics analyzeFile(const std::filesystem::path& filePath) { // đổi từ 
         cout << "Cannot open: " << filePath << '\n';
         return {}; // Trả về một FileMetrics rỗng nếu không thể mở file.
     }
-    // int totalLines = 0; // Biến lưu tổng số dòng của file.
-    // int blankLines = 0; // Biến lưu số dòng trống.
-    // int commentLines = 0; // Biến lưu số dòng comment.
-    FileMetrics metrics; // đổi 3 biến thành một struct FileMetrics để lưu các thông tin metrics của file.
+
+    //// int totalLines = 0; // Biến lưu tổng số dòng của file.
+    //// int blankLines = 0; // Biến lưu số dòng trống.
+    //// int commentLines = 0; // Biến lưu số dòng comment.
+    
+    FileMetrics metrics; // đổi lưu 3 biến thành struct FileMetrics để lưu các thông tin metrics của file.
     std::string line; // Biến tạm dùng để lưu từng dòng được đọc.
     while (std::getline(file, line)) { // Đọc file từng dòng cho đến khi hết file.
         metrics.totalLines++; // Mỗi lần đọc được một dòng thì tăng tổng số dòng lên 1.
