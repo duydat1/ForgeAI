@@ -1,3 +1,4 @@
+
 Ban đầu tạo 1 folder ForgeAI , sau đó tạo 1 folder engine ( trong này có 2 file main và analyzer)
 Nhiệm vụ ở V1 là người dùng đưa 1 folder vào , AI sẽ nhận diện và chỉ tìm 2 file main và analyzer để đọc 
     - Ta quy định V1 chỉ phân tích 3 đuôi .cpp .h .hpp 
@@ -8,7 +9,7 @@ Nhiệm vụ ở V1 là người dùng đưa 1 folder vào , AI sẽ nhận di�
     => analyzer.cpp lúc này chỉ còn nhiệm vụ: duyệt project → tìm source file → gọi analyzeFile()
     - Thêm file_metrics.h : thay vì đọc file r in ra kết quả thì sẽ lưu vào 1 FileMetrics và trả về file đó để tái sử dụng 
         + xóa 3 biến đếm và thay bằng FileMetrics metrics; mỗi lần gọi struct FileMetrics sẽ chạy và lưu kết quả vào file_metrics
-
+    - Thêm project_metrics.h : Thay vì đếm số lượng dòng mỗi file thì tạo thêm 1 file này có tác dụng đếm xem tổng các dòng của các file và cũng chia theo từng loại
 
 
 

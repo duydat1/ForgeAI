@@ -1,8 +1,10 @@
-#include "file_analyzer.h"
 
 #include <fstream>
 #include <iostream>
 #include <string>
+
+#include "file_analyzer.h"
+
 
 using std ::cout;
 
