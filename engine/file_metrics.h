@@ -5,7 +5,7 @@
 struct FileMetrics {
 
     // Đường dẫn của file được phân tích.
-    std::string filePath;
+    std::string filePath; 
 
     // Tổng số dòng trong file.
     int totalLines = 0;

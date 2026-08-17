@@ -7,7 +7,7 @@ struct ProjectMetrics {
     int sourceFileCount = 0;
 
     // Tổng số dòng của project.
-    int totalLines = 0;
+    int totalLines = 0; 
 
     // Tổng số dòng trống.
     int blankLines = 0;

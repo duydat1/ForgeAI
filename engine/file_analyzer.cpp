@@ -27,7 +27,7 @@ FileMetrics analyzeFile(const std::filesystem::path& filePath) { // đổi từ 
                 isBlank = false;
                 break;
             }
-        }
+        } 
 
         if (isBlank)  metrics.blankLines++; // Nếu toàn bộ dòng chỉ chứa space/tab thì tăng blankLines.
         std::size_t firstCharacter = line.find_first_not_of(" \t"); // Tạm thời bỏ qua các khoảng trắng đầu dòng.

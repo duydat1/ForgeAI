@@ -67,4 +67,4 @@ void analyze(const std::string& projectPath) {
     for (const FileMetrics& metrics : fileMetricsList) {
         cout << "  " << metrics.filePath << '\n'; // In đường dẫn của file tương ứng với metrics hiện tại.
     }
-}
+} 

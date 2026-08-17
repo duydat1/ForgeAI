@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
 
 
 
-    analyze(argv[1]);
+    analyze(argv[1]); 
 
     return 0; 
 }
