@@ -1,17 +1,20 @@
 
+#include <bits/stdc++.h>
 #include <iostream>
 #include <filesystem>
 #include <string>
+#include <vector>
 
 #include "file_analyzer.h"
 #include "project_metrics.h"
 
-
 using std ::cout;
+    
 
 void analyze(const std::string& projectPath) {
     cout << "Scanning project...\n\n"; // In thông báo cho biết ForgeAI bắt đầu quét project.
     ProjectMetrics projectMetrics; // Biến này dùng để lưu các metrics tổng hợp của project.
+    std::vector<FileMetrics> fileMetricsList; // Tạo một danh sách để lưu metrics của từng source file.
     
     for (const auto& entry :  // Duyệt qua projectPath và tất cả các thư mục con bên trong nó.
         std::filesystem::recursive_directory_iterator(projectPath)) {
@@ -27,21 +30,25 @@ void analyze(const std::string& projectPath) {
                 cout << "  Total lines:   " << metrics.totalLines << '\n';
                 cout << "  Blank lines:   " << metrics.blankLines << '\n';
                 cout << "  Comment lines: " << metrics.commentLines << '\n';
+                cout << "  Code lines:    " << metrics.codeLines() << '\n';
 
                 projectMetrics.sourceFileCount++; // Có thêm một source file vào tổng số file của project.
                 projectMetrics.totalLines += metrics.totalLines; // Cộng số dòng của file hiện tại vào tổng số dòng của project.
                 projectMetrics.blankLines += metrics.blankLines; // Cộng số dòng trống của file hiện tại vào tổng số dòng trống của project.
                 projectMetrics.commentLines += metrics.commentLines; // Cộng số dòng comment của file hiện tại vào tổng số dòng comment của project.
+                fileMetricsList.push_back(metrics); // Thêm metrics của file hiện tại vào danh sách.
             }
         }
     }
+    
+    // In thống kê tổng hợp của project.
     cout << "\nProject Statistics\n";
     cout << "------------------\n";
 
     // In tổng số source file.
     cout << "Source files:   " << projectMetrics.sourceFileCount << '\n';
 
-    // In tổng số dòng của project.
+    // In tổng số dòng.
     cout << "Total lines:    " << projectMetrics.totalLines << '\n';
 
     // In tổng số dòng trống.
@@ -49,4 +56,15 @@ void analyze(const std::string& projectPath) {
 
     // In tổng số dòng comment.
     cout << "Comment lines:  " << projectMetrics.commentLines << '\n';
+
+    // In tổng số dòng code.
+    cout << "Code lines:     " << projectMetrics.codeLines() << '\n';
+
+    // In số lượng FileMetrics đang được lưu.
+    cout << "\nStored file metrics: " << fileMetricsList.size() << '\n';
+
+    // Duyệt qua toàn bộ metrics đã được lưu trong vector.
+    for (const FileMetrics& metrics : fileMetricsList) {
+        cout << "  " << metrics.filePath << '\n'; // In đường dẫn của file tương ứng với metrics hiện tại.
+    }
 }
