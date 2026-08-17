@@ -1,4 +1,5 @@
 // những file có đuôi này sẽ bị bỏ qua khi commit lên github 
+
 # Bỏ qua file thực thi và cấu hình editor
 *.exe
 .vscode/
